@@ -22,7 +22,7 @@ public class WeatherManager : MonoBehaviour
     [Header("=== Debug Options ===")]
     public bool forceRain = false;
 
-    public static Action<WeatherManager, Queue<Weather>> OnWetherChange;
+    public static Action<Weather, Queue<Weather>> OnWeatherChange;
 
     private void Start()
     {
@@ -62,7 +62,7 @@ public class WeatherManager : MonoBehaviour
 
         for (int i = 0; i < weatherQueueSize; i++)
         {
-            WeatherManager tempWeather = GetRandomWeather();
+            Weather tempWeather = GetRandomWeather();
 
             weatherQueue.Enqueue(tempWeather);
 
@@ -70,7 +70,7 @@ public class WeatherManager : MonoBehaviour
         }
     }
 
-    private WeatherManager GetRandomWeather()
+    private Weather GetRandomWeather()
     {
         int randomWeather = 0;
 
